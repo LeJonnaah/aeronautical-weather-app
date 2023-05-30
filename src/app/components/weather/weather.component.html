@@ -21,9 +21,17 @@
 
 <div class="my-container">
     <div class="card text-bg-primary m-5" style="max-width: 18rem;">
-        <div class="card-header text-center">something</div>
+        <div class="card-header text-center">
+            <h3
+                [(ngModel)]="icao"
+            >{{ metar?.data[0].icao }}</h3>
+            <h3
+            >{{ metar?.data[0].station.name }}</h3>
+        </div>
         <div class="card-body">
-            <p class="card-text">METAR {{ metar }}</p>
+            <p class="card-text">METAR 
+                <span> {{ metar?.data[0].raw_text }} </span>
+            </p>
         </div>
     </div>
 </div>

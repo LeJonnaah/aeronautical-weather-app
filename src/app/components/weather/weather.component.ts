@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 
 @Component({
@@ -12,22 +12,18 @@ export class WeatherComponent {
 
   metar: any = [];
   icao: string = '';
+  // name: string = '';
 
-  ngOnInit(): void {
-    this.getWeatherData(this.icao);
-  }
 
   onSubmit() {
-    this.getWeatherData(this.icao);
-    this.icao = '';
-  }
-
-  private getWeatherData(icao: string) {
-    this.weatherService.getWeatherData(icao).subscribe({
+    this.weatherService.getWeatherData(this.icao).subscribe({
       next: (data) => {
-        this.metar = data
         console.log(data);
+        this.metar = data;
+      },
+      error: (error) => {
+        console.error(error);
       }
-    })
+    });
   }
 }
