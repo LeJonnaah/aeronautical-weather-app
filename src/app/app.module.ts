@@ -3,20 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { FormsModule } from '@angular/forms';
-import { HomePagePipe } from './pages/home-page.pipe';
-import { AboutComponent } from './components/about/about.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
-    HomePagePipe,
-    AboutComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,10 @@ import { AboutComponent } from './components/about/about.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

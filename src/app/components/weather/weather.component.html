@@ -1,37 +1,27 @@
-<div class="seatch">
-    <form 
-        #form='ngForm'
-        (ngSubmit)="onSubmit()"
-    >
-        <div class="form-group">
-            <label for="icao">ICAO</label>
-            <input 
-                type="text" 
-                class="form-control" 
-                id="icao" 
-                aria-describedby="icaoHelp" placeholder="Enter ICAO" 
-                name="icao"
-                [(ngModel)]="icao"
-            >
-            <small id="icaoHelp" class="form-text text-muted">Enter ICAO code of the airport</small>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+<mat-form-field>
+    <mat-label>ICAO</mat-label>
+    <input matInput [(ngModel)]="icao" placeholder="ICAO">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="onSubmit()">Get Metar</button>
 
-<div class="my-container">
-    <div class="card text-bg-primary m-5" style="max-width: 18rem;">
-        <div class="card-header text-center">
-            <h3
-                [(ngModel)]="icao"
-            >{{ metar?.data[0].icao }}</h3>
-            <h3
-            >{{ metar?.data[0].station.name }}</h3>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Weather</mat-card-title>
+        <mat-card-subtitle>Metar</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="my-container">
+            <div >
+                <div class="card-header text-center">
+                    <h3 [(ngModel)]="icao">{{ metar?.data[0].icao }}</h3>
+                    <h3>{{ metar?.data[0].station.name }}</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">METAR
+                        <span> {{ metar?.data[0].raw_text }} </span>
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <p class="card-text">METAR 
-                <span> {{ metar?.data[0].raw_text }} </span>
-            </p>
-        </div>
-    </div>
-</div>
+    </mat-card-content>
+</mat-card>
