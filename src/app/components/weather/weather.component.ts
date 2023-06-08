@@ -10,20 +10,26 @@ export class WeatherComponent {
 
   constructor(private weatherService: WeatherService) { }
 
-  metar: any = [];
+  metarData: any = [];
   icao: string = '';
-  // name: string = '';
 
 
-  onSubmit() {
+  getMetar() {
     this.weatherService.getWeatherData(this.icao).subscribe({
       next: (data) => {
-        console.log(data);
-        this.metar = data;
+        this.metarData.push(data);
       },
       error: (error) => {
         console.error(error);
       }
     });
   }
+
+  deleteCard(item: any) {
+    const index = this.metarData.indexOf(item);
+    if (index >= 0) {
+      this.metarData.splice(index, 1);
+    }
+  }
+
 }

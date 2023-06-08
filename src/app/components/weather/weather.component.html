@@ -1,27 +1,36 @@
-<mat-form-field>
-    <mat-label>ICAO</mat-label>
-    <input matInput [(ngModel)]="icao" placeholder="ICAO">
-</mat-form-field>
-<button mat-raised-button color="primary" (click)="onSubmit()">Get Metar</button>
+<form>
+    <mat-form-field>
+        <input matInput placeholder="ICAO code" [(ngModel)]="icao" name="icao" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="getMetar()">Get Metar</button>
+</form>
 
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Weather</mat-card-title>
-        <mat-card-subtitle>Metar</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="my-container">
-            <div >
-                <div class="card-header text-center">
-                    <h3 [(ngModel)]="icao">{{ metar?.data[0].icao }}</h3>
-                    <h3>{{ metar?.data[0].station.name }}</h3>
+<div *ngIf="metarData.length > 0">
+    <h2>Metar Data</h2>
+    <div class="card-container">
+        <mat-card class="card" *ngFor="let item of metarData">
+            <mat-card-header>
+                <mat-card-title class="card__title">{{ item.data[0].icao }}</mat-card-title>
+                <mat-card-subtitle>{{ item.data[0].station.name }}</mat-card-subtitle>
+                <button mat-icon-button color="warn" (click)="deleteCard(item)">
+                    <mat-icon fontIcon="close"></mat-icon>
+                </button>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="my-container">
+                    <div>
+                        <div class="card-header text-center">
+                            <h3>{{ item.data[0].icao }}</h3>
+                            <h3>{{ item.data[0].station.name }}</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">METAR
+                                <span>{{ item.data[0].raw_text }}</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">METAR
-                        <span> {{ metar?.data[0].raw_text }} </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </mat-card-content>
-</mat-card>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
