@@ -18,6 +18,7 @@ export class WeatherComponent {
     this.weatherService.getWeatherData(this.icao).subscribe({
       next: (data) => {
         this.metarData.push(data);
+        this.icao = '';
       },
       error: (error) => {
         console.error(error);

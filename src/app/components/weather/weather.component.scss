@@ -1,9 +1,18 @@
 .card{
     margin: 0 auto;
     max-width: 400px;
+    border-radius: 5px;
+    border: 1px solid var(--borderColor);
+    background-color: var(--bgColor);
+    color: var(--textColor);
 }
 
 .card__title {
     font-size: 1.5rem;
     padding: 10px;
+}
+
+mat-form-field {
+    background-color: var(--bgColor);
+    color: var(--textColor);
 }
