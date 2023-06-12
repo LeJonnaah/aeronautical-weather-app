@@ -2,4 +2,14 @@ mat-toolbar{
     background-color: var(--bgColor);
     color: var(--textColor);
     border-bottom: 1px solid var(--borderColor);
+    position: relative;
+}
+
+.navbar {
+
+    &--left {
+        position: absolute;
+        right: 5px;
+        line-height: 3;
+    }
 }

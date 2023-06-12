@@ -7,9 +7,15 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   isDarkModeEnabled: boolean = false;
+  currentTime: string = '';
 
   ngOnInit() {
     this.setTheme();
+
+    setInterval(() => {
+      const date = new Date();
+      this.currentTime = date.toUTCString();
+    }, 1000);
   }
 
   setTheme() {
@@ -19,6 +25,8 @@ export class NavbarComponent {
       document.body.classList.add('light');
     }
   }
+
+
 
   toggleDarkMode() {
     this.isDarkModeEnabled = !this.isDarkModeEnabled;

@@ -11,7 +11,7 @@
             <mat-card-header>
                 <mat-card-title class="card__title">{{ item.data[0].icao }}</mat-card-title>
                 <mat-card-subtitle>{{ item.data[0].station.name }}</mat-card-subtitle>
-                <button mat-icon-button color="warn" (click)="deleteCard(item)">
+                <button class="card__remove-button" mat-icon-button color="warn" (click)="deleteCard(item)">
                     <mat-icon fontIcon="close"></mat-icon>
                 </button>
             </mat-card-header>

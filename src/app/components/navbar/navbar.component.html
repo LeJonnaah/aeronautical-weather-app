@@ -1,8 +1,11 @@
 <p>
     <mat-toolbar>
-        <span>Ponox´s Metar</span>
-        <button mat-icon-button (click)="toggleDarkMode()">
-            <mat-icon>{{ isDarkModeEnabled ? 'brightness_7' : 'brightness_4' }}</mat-icon>
-        </button>
+        <nav class="navbar">
+            <span>Ponox´s Metar</span>
+            <button mat-icon-button (click)="toggleDarkMode()">
+                <mat-icon>{{ isDarkModeEnabled ? 'brightness_7' : 'brightness_4' }}</mat-icon>
+            </button>
+            <span class="navbar--left">{{ currentTime }}</span>
+        </nav>
     </mat-toolbar>
 </p>
