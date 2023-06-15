@@ -16,12 +16,17 @@ export class WeatherComponent {
 
   getMetar() {
     this.weatherService.getWeatherData(this.icao).subscribe({
-      next: (data) => {
-        this.metarData.push(data);
-        this.icao = '';
+      next: (res: any) => {
+        if (res.results >= 1) {
+          this.metarData.push(res);
+          this.icao = '';  
+        } else {
+          alert('No data found for this ICAO');
+        }
       },
       error: (error) => {
         console.error(error);
+        alert('No data found for this ICAO');
       }
     });
   }

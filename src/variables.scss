@@ -1,9 +1,9 @@
-$bgColor_light: white;
-$bgColor_dark: black;
-$textColor_light: black;
-$textColor_dark: white;
-$borderColor_light: black;
-$borderColor_dark: white;
+$bgColor_light: #f7f7f7;
+$bgColor_dark: #35393e;
+$textColor_light: #393939;
+$textColor_dark: #f8fcff;
+$borderColor_light: #c8c8c8;
+$borderColor_dark: #f8fcff;
 
 // mixin that enables css variables in light mode
 @mixin lighten() {
