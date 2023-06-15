@@ -1,4 +1,4 @@
-.card{
+.card {
     margin: 10px auto;
     max-width: 400px;
     border-radius: 5px;
@@ -22,7 +22,16 @@
     }
 }
 
-mat-form-field {
+.form {
     background-color: var(--bgColor);
     color: var(--textColor);
+    position: relative;
+    width: 400px;
+    margin: 10px;
+
+    &__button {
+        padding: 25px;
+        font-size: 1.3rem;
+        margin-left:    10px;
+    }
 }

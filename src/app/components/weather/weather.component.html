@@ -1,8 +1,8 @@
 <form>
-    <mat-form-field>
-        <input matInput placeholder="ICAO code" [(ngModel)]="icao" name="icao" required>
+    <mat-form-field class="form">
+        <input class="form__input" matInput placeholder="ICAO code" [(ngModel)]="icao" name="icao" required>
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="getMetar()">Get Metar</button>
+    <button class="form__buttonw" mat-raised-button color="primary" (click)="getMetar()">Get Metar</button>
 </form>
 
 <div *ngIf="metarData.length > 0">
